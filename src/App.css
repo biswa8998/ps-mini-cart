@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.center-all {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.app {
+  width: 100%;
+  height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  /* width: 400px; */
+  background-color: #efefef;
+  justify-content: flex-end;
+  border-bottom: 4px solid #cfcfcf;
+}
+
+.mini-cart-wrapper {
+  flex-direction: row;
+  justify-content: start;
+  display: flex;
+  padding: 4px;
+}
+
+.total-and-count {
+  flex-basis: 60px;
+  flex-grow: 1;
+  font-size: 0.75em;
+  font-weight: 500;
+  flex-direction: column;
+}
+
+.amount-total {
+  font-size: 1.2em;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.items-total span {
+  position: relative;
+  top: -2px;
+  margin: 0px 4px;
+}
+
+.items-total span:hover,
+.cart-icon:hover {
+  cursor: pointer;
+}
+
+.cart-icon {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.product-list {
+  padding: 0px 8px;
+  list-style: none;
+}
+
+.product-detail-wrapper {
+  display: flex;
+  background-color: #efefef;
+  height: 50px;
+  padding: 8px;
+  margin: 4px 0px;
+  border-bottom: 4px solid #cfcfcf;
+}
+
+.product-thumbnail {
+  flex-basis: 0px;
+  flex-grow: 1;
+  font-size: 1.25em;
+}
+
+.product-name-desc {
+  flex-basis: 200px;
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.list-product-name {
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.list-product-desc {
+  font-size: 0.75em;
+}
+
+.product-quantity {
+  font-size: 0.7em;
+  display: flex;
+  align-items: center;
+}
+
+.product-quantity > span:nth-child(2) {
+  padding: 0px 4px;
+}
+
+.product-quantity,
+.product-amount {
+  flex-grow: 1;
+}
+
+.product-amount {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-basis: 100px;
+  font-weight: 500;
+}
+
+.product-detail-wrapper > div {
+  padding: 2px;
+}
+
+.product-quantity input {
+  width: 40px;
+  outline: none;
 }
