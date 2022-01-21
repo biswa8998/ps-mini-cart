@@ -6,6 +6,7 @@ import {
   faBowlingBall,
   faPlus,
   faMinus,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
@@ -33,6 +34,19 @@ function App() {
     </li>
   ));
 
+  const cartLists = new Array(2).fill(0).map((i, j) => (
+    <li key={j} className="cart-product-wrapper">
+      <div className="delete-product center-all">
+        <FontAwesomeIcon icon={faTimes} />
+      </div>
+      <div className="product-name-desc">
+        <div className="cart-list-product-name">Product Name</div>
+        <div className="cart-list-product-amount">$35</div>
+      </div>
+      <div className="cart-product-quantity center-all">Qty 888881</div>
+    </li>
+  ));
+
   return (
     <div className="app center-all">
       <div className="app-screen" style={{ width: 400 }}>
@@ -49,6 +63,10 @@ function App() {
             </div>
             <div className="cart-icon">
               <FontAwesomeIcon icon={faShoppingCart} />
+            </div>
+            <div className="cart-balloon">
+              <div className="cart-upper-tick"></div>
+              <ul className="cart-balloon-product-list">{cartLists}</ul>
             </div>
           </div>
         </div>
