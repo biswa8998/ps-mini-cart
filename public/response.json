@@ -15,6 +15,14 @@
       "image": "/product2.jpeg",
       "price": "39",
       "currency": "$"
+    },
+    {
+      "id": "123444",
+      "title": "Product 3",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
+      "image": "/product2.jpeg",
+      "price": "39",
+      "currency": "$"
     }
   ]
 }

@@ -1,25 +1,36 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+
+import NumberInput from "../Input/NumberInput";
+
 export default function ProductListItem(props) {
+  const updateCart = (productId, productQuantity) => {
+    props.updateCart(productId, productQuantity);
+  };
+
+  const onIconClick = (e) => {
+    if (props.onIconClick) {
+      props.onIconClick(e);
+    }
+  };
+
   return (
     <li className={props.wrapperStyleClass}>
-      {/* "cart-product-wrapper" */}
-      <div className={`${props.iconStyleClass} center-all`}>
+      <div
+        className={`${props.iconStyleClass} center-all`}
+        onClick={onIconClick}
+      >
         <FontAwesomeIcon icon={props.icon} />
       </div>
       <div className="product-name-desc">{props.children}</div>
       {props.showProductAddControl && (
-        <div className="product-quantity center-all">
-          <span>
-            <FontAwesomeIcon icon={faMinus} />
-          </span>
-          <span>
-            <input type="number" min={1} />
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faPlus} />
-          </span>
-        </div>
+        <NumberInput
+          wrapperStyleClass="product-quantity"
+          minimum={0}
+          inputValue={props.productQuantity}
+          onChangeCallback={(value) => {
+            updateCart(props.productId, value);
+          }}
+        />
       )}
       <div className={`product-info center-all`}>{props.productInfo}</div>
     </li>

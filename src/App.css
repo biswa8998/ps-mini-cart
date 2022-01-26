@@ -9,6 +9,10 @@
   height: 100vh;
 }
 
+.app-screen {
+  position: relative;
+}
+
 .header-wrapper {
   display: flex;
   flex-direction: row;
@@ -133,6 +137,7 @@
   margin-left: -300px;
   width: 400px;
   border-radius: 4px;
+  z-index: 1;
 }
 
 .cart-balloon-product-list {
@@ -178,4 +183,18 @@
 
 .cart-product-wrapper .product-name-desc .cart-list-product-amount {
   font-weight: bold;
+}
+
+.number-control-button {
+  outline: none;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.list-overlay {
+  background: #ffffff80;
+  position: absolute;
+  margin-top: 70px;
+  top: 0px;
 }
