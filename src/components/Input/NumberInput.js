@@ -27,13 +27,6 @@ export default function NumberInput(props) {
       setInputValue(inputValue + 1);
       props.onChangeCallback(inputValue + 1);
     } else {
-      if (
-        goUp === undefined &&
-        parseInt(event.target.value) >= parseInt(props.minimum)
-      ) {
-        setInputValue(parseInt(event.target.value));
-        props.onChangeCallback(parseInt(event.target.value));
-      }
       if (inputValue - 1 >= props.minimum) {
         setInputValue(inputValue - 1);
         props.onChangeCallback(inputValue - 1);
@@ -45,7 +38,7 @@ export default function NumberInput(props) {
     <div className={`${props.wrapperStyleClass} center-all`}>
       <button
         onClick={(e) => updateValue(e, false)}
-        className="number-control-button"
+        className="number-control-button button-decrement"
       >
         <FontAwesomeIcon icon={faMinus} />
       </button>
@@ -69,7 +62,7 @@ export default function NumberInput(props) {
       </span>
       <button
         onClick={(e) => updateValue(e, true)}
-        className="number-control-button"
+        className="number-control-button button-increment"
       >
         <FontAwesomeIcon icon={faPlus} />
       </button>
