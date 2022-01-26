@@ -3,6 +3,12 @@ import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 import { useState, useEffect } from "react";
 
+/**
+ * An input control which will only accept number and has controls to increment and decrement input on click
+ * input will only accept number 0 - 9
+ * @param {*} props
+ * @returns
+ */
 export default function NumberInput(props) {
   const [inputValue, setInputValue] = useState(props.inputValue);
 

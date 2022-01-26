@@ -2,6 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import NumberInput from "../Input/NumberInput";
 
+/**
+ * A reusable component which will help to create various list items based on the props passed to
+ * it.
+ * @param {*} props
+ * @returns
+ */
 export default function ProductListItem(props) {
   const updateCart = (productId, productQuantity) => {
     props.updateCart(productId, productQuantity);

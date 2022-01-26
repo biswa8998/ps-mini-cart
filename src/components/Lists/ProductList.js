@@ -5,6 +5,12 @@ import ProductListItem from "./ProductListItem";
 
 import { useEffect, useState } from "react";
 
+/**
+ * This will create a unsorted list of product and products in the cart
+ *
+ * @param {*} props
+ * @returns
+ */
 export default function ProductList(props) {
   const [itemsLength, setItemsLength] = useState(
     props.listOfProducts.get("items")

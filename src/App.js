@@ -5,6 +5,10 @@ import ProductList from "./components/Lists/ProductList";
 import apiHelper from "./helper/api";
 import AppConstants from "./helper/constants";
 
+/**
+ *
+ * @returns Main application
+ */
 function App() {
   const [appProducts, setAppProducts] = useState(new Map().set("items", 0));
   const [trigCartUpdate, setTrigCartUpdate] = useState(true);
@@ -12,11 +16,14 @@ function App() {
 
   const LOCAL_STORAGE_KEY = AppConstants.constants.LOCAL_STORE_KEY;
 
+  /**
+   * This effect will run only once after mount. We will call the api and setup the application
+   * for the first time.
+   */
   useEffect(() => {
     apiHelper.getProductList((data) => {
       // create a map with id as key and initial quantity = 1
       // also check for items quantity in local storage. if found, those quantity will take precedence
-
       let countInStorage = localStorage.getItem(LOCAL_STORAGE_KEY);
       if (countInStorage) {
         countInStorage = JSON.parse(countInStorage);
@@ -47,9 +54,10 @@ function App() {
   }, []);
 
   /**
-   * update the items in the cart
-   * @param {*} productId
-   * @param {*} productQuantity
+   * update the items in the cart on event of various events. Cart will update on click of
+   * + and - sign. Cart will also update when product gets deleted from cart.
+   * @param {*} productId: id of the product to be updated
+   * @param {*} productQuantity: quantity of product
    */
   const updateCart = (productId, productQuantity) => {
     appProducts.set(productId, {
@@ -72,6 +80,7 @@ function App() {
       countStore[nextValue[0]] = nextValue[1].quantity;
     }
 
+    // store the latest data in local storage
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(countStore));
     setAppProducts(appProducts);
     setTrigCartUpdate(!trigCartUpdate);

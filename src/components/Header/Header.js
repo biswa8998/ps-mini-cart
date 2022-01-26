@@ -12,6 +12,12 @@ import Minicart from "../Minicart/Minicart";
 import ProductListItem from "../Lists/ProductListItem";
 import AppConstants from "../../helper/constants";
 
+/**
+ * The application header which contains elements for cart quantity, cart amount and a handle to open/close
+ * minicart balloon
+ * @param {*} props
+ * @returns
+ */
 export default function Header(props) {
   const [cartAmount, setCartAmount] = useState(0);
   const [itemsCount, setItemsCount] = useState(0);
