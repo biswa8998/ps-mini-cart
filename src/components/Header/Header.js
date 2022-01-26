@@ -122,7 +122,7 @@ export default function Header(props) {
               <ProductListItem
                 key="empty-cart"
                 wrapperStyleClass="cart-product-wrapper"
-                iconStyleClass="delete-product"
+                iconStyleClass=""
                 showProductAddControl={false}
                 productInfo=""
                 icon={faBan}

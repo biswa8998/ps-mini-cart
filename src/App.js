@@ -3,18 +3,21 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import ProductList from "./components/Lists/ProductList";
 import apiHelper from "./helper/api";
+import AppConstants from "./helper/constants";
 
 function App() {
   const [appProducts, setAppProducts] = useState(new Map().set("items", 0));
   const [trigCartUpdate, setTrigCartUpdate] = useState(true);
   const [cartVisible, setCartVisible] = useState(null);
 
+  const LOCAL_STORAGE_KEY = AppConstants.constants.LOCAL_STORE_KEY;
+
   useEffect(() => {
     apiHelper.getProductList((data) => {
       // create a map with id as key and initial quantity = 1
       // also check for items quantity in local storage. if found, those quantity will take precedence
 
-      let countInStorage = localStorage.getItem("countStore");
+      let countInStorage = localStorage.getItem(LOCAL_STORAGE_KEY);
       if (countInStorage) {
         countInStorage = JSON.parse(countInStorage);
       }
@@ -37,9 +40,10 @@ function App() {
       productMap.set("items", 2);
 
       setAppProducts(productMap);
-      localStorage.setItem("countStore", JSON.stringify(countStore));
-      setTrigCartUpdate(!trigCartUpdate);
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(countStore));
+      setTrigCartUpdate((t) => !trigCartUpdate);
     });
+    // eslint-disable-next-line
   }, []);
 
   /**
@@ -57,7 +61,7 @@ function App() {
     let countStore = {};
     while (true) {
       const nextValue = prodItr.next().value;
-      if (nextValue == undefined) {
+      if (nextValue === undefined) {
         break;
       }
 
@@ -68,7 +72,7 @@ function App() {
       countStore[nextValue[0]] = nextValue[1].quantity;
     }
 
-    localStorage.setItem("countStore", JSON.stringify(countStore));
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(countStore));
     setAppProducts(appProducts);
     setTrigCartUpdate(!trigCartUpdate);
   };

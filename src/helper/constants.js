@@ -1,4 +1,7 @@
 const AppConstants = {
+  constants: {
+    LOCAL_STORE_KEY: "countStore",
+  },
   strings: {
     emptyCart: "Your cart is empty",
   },
