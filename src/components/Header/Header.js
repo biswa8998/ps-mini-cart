@@ -37,7 +37,7 @@ export default function Header(props) {
           break;
         }
 
-        const { id, price, quantity } = {
+        const { price, quantity } = {
           ...nextValue[1],
         };
 
@@ -54,11 +54,13 @@ export default function Header(props) {
 
   useEffect(() => {
     updateItemAmount();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     updateItemAmount();
     createCartList();
+    // eslint-disable-next-line
   }, [props.trigCartUpdate]);
 
   const createCartList = () => {

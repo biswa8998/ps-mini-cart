@@ -13,9 +13,10 @@ export default function NumberInput(props) {
   const [inputValue, setInputValue] = useState(props.inputValue);
 
   useEffect(() => {
-    if (props.inputValue != inputValue) {
+    if (props.inputValue !== inputValue) {
       setInputValue(props.inputValue);
     }
+    // eslint-disable-next-line
   }, [props.inputValue]);
 
   const updateValue = (event, goUp) => {

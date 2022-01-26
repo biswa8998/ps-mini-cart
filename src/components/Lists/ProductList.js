@@ -17,6 +17,7 @@ export default function ProductList(props) {
   );
   useEffect(() => {
     setItemsLength(props.listOfProducts.size);
+    // eslint-disable-next-line
   }, [props.listOfProducts.get("items")]);
 
   let productListItems = [];
